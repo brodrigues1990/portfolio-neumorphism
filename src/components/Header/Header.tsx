@@ -1,6 +1,7 @@
 import { styled } from '../../styles/stitches.config';
 import { ThemeToggleButton } from '../ThemeToggleButton';
 import * as Dialog from '@radix-ui/react-dialog';
+import { Container, Flex } from '@radix-ui/themes';
 
 const HeaderContainer = styled('header', {
   display: 'flex',
@@ -27,7 +28,7 @@ const Logo = styled('div', {
 const NavLinks = styled('nav', {
   display: 'flex',
   gap: '20px',
-
+  alignItems: 'center',
   '@sm': {
     display: 'none', // Esconde o menu padrão no mobile
   },
@@ -88,36 +89,38 @@ const Header = () => {
 
   return (
 
+   
+      <Container >
+        <Flex gap="3" justify="center" align="center" >
+          <Logo onClick={() => scrollToSection('home')}>&lt;Br/&gt;</Logo>
 
-    <HeaderContainer>
-      <Logo onClick={() => scrollToSection('home')}>MyPortfolio</Logo>
-
-      {/* Menu para desktop */}
-      <NavLinks>
-        <Link onClick={() => scrollToSection('home')}>Home</Link>
-        <Link onClick={() => scrollToSection('about')}>About</Link>
-        <Link onClick={() => scrollToSection('projects')}>Projects</Link>
-        <Link onClick={() => scrollToSection('services')}>Services</Link>
-        <Link onClick={() => scrollToSection('resume')}>Resume</Link>
-        <ThemeToggleButton />
-      </NavLinks>
-
-      {/* Menu para mobile */}
-      <Dialog.Root>
-        <Dialog.Trigger asChild>
-          <MenuButton>☰</MenuButton>
-        </Dialog.Trigger>
-        <Overlay />
-        <SideMenu>
-          <Link onClick={() => scrollToSection('home')}>Home</Link>
-          <Link onClick={() => scrollToSection('about')}>About</Link>
-          <Link onClick={() => scrollToSection('projects')}>Projects</Link>
-          <Link onClick={() => scrollToSection('services')}>Services</Link>
-          <Link onClick={() => scrollToSection('resume')}>Resume</Link>
-          <ThemeToggleButton />
-        </SideMenu>
-      </Dialog.Root>
-    </HeaderContainer>
+          {/* Menu para desktop */}
+          <NavLinks>
+            <Link onClick={() => scrollToSection('home')}>Home</Link>
+            <Link onClick={() => scrollToSection('about')}>About</Link>
+            <Link onClick={() => scrollToSection('projects')}>Projects</Link>
+            <Link onClick={() => scrollToSection('services')}>Services</Link>
+            <Link onClick={() => scrollToSection('resume')}>Resume</Link>
+            <ThemeToggleButton />
+          </NavLinks>
+        </Flex>
+        {/* Menu para mobile */}
+        <Dialog.Root>
+          <Dialog.Trigger asChild>
+            <MenuButton>☰</MenuButton>
+          </Dialog.Trigger>
+          <Overlay />
+          <SideMenu>
+            <Link onClick={() => scrollToSection('home')}>Home</Link>
+            <Link onClick={() => scrollToSection('about')}>About</Link>
+            <Link onClick={() => scrollToSection('projects')}>Projects</Link>
+            <Link onClick={() => scrollToSection('services')}>Services</Link>
+            <Link onClick={() => scrollToSection('resume')}>Resume</Link>
+            <ThemeToggleButton />
+          </SideMenu>
+        </Dialog.Root>
+      </Container>
+    
   );
 };
 

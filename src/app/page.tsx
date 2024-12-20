@@ -1,4 +1,5 @@
 "use client";
+import { Container } from '@radix-ui/themes';
 import Header from '../components/Header/Header';
 // import About from './components/about';
 // import Resume from './components/resume';
@@ -14,7 +15,9 @@ export default function Home() {
   return (
     <>
       <Header />
-      
+      <Container>
+      <p>Este texto deve estar centralizado e limitado em largura!</p>
+    </Container>
       {/* <about />
       <resume />
       <contact />

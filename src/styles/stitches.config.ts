@@ -41,18 +41,23 @@ export const { styled, css, globalCss, theme, createTheme } = createStitches({
 
 export const darkTheme = createTheme({
     colors: {
-        background: '#1A1A1A',
-        text: '#E1E1E1',
+        background: '#111111',
+        text: '#8B8D98',
     },
 });
 
 export const globalStyles = globalCss({
-    body: {
-        margin: 0,
-        padding: 0,
-        fontFamily: 'sans-serif',
-        backgroundColor: '$background',
-        color: '$text',
-    },
+    '*, *::before, *::after': {
+    margin: 0,
+    padding: 0,
+    boxSizing: 'border-box',
+  },
+  body: {
+    margin: 0,
+    padding: 0,
+    fontFamily: 'Arial, sans-serif',
+    backgroundColor: '$background',
+    color: '$text',
+  },
 });
 globalStyles();
