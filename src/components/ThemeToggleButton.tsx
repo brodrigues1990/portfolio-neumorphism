@@ -1,6 +1,6 @@
 'use client';
 import * as Toggle from '@radix-ui/react-toggle';
-import { useTheme } from '../context/ThemeProvider';
+import { useThemeStore } from '../store/ThemeStore';
 import { styled } from '../styles/stitches.config';
 
 const StyledToggle = styled(Toggle.Root, {
@@ -14,10 +14,22 @@ const StyledToggle = styled(Toggle.Root, {
     '&:hover': {
       opacity: 0.8,
     },
+    // Estilos para quando o botão estiver "pressionado" (tema escuro)
+  '&[data-state=on]': {
+    backgroundColor: '$background', // Cor personalizada para tema escuro
+    color: '$background',
+    borderColor: '$primary',
+  },
+  // Estilos para quando o botão não estiver "pressionado" (tema claro)
+  '&[data-state=off]': {
+    backgroundColor: '$background', // Cor personalizada para tema claro
+    color: '$text',
+    borderColor: '$text',
+  },
   });
 
 export const ThemeToggleButton = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useThemeStore();
 
   return (
     <StyledToggle pressed={theme === 'dark'} onPressedChange={toggleTheme}>
