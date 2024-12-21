@@ -88,15 +88,12 @@ const Header = () => {
   };
 
   return (
-
-   
       <Container >
-        <Flex gap="3" justify="center" align="center" >
+        <Flex gap="3" justify="between" align="center" >
           <Logo onClick={() => scrollToSection('home')}>&lt;Br/&gt;</Logo>
 
           {/* Menu para desktop */}
           <NavLinks>
-            <Link onClick={() => scrollToSection('home')}>Home</Link>
             <Link onClick={() => scrollToSection('about')}>About</Link>
             <Link onClick={() => scrollToSection('projects')}>Projects</Link>
             <Link onClick={() => scrollToSection('services')}>Services</Link>
@@ -111,7 +108,6 @@ const Header = () => {
           </Dialog.Trigger>
           <Overlay />
           <SideMenu>
-            <Link onClick={() => scrollToSection('home')}>Home</Link>
             <Link onClick={() => scrollToSection('about')}>About</Link>
             <Link onClick={() => scrollToSection('projects')}>Projects</Link>
             <Link onClick={() => scrollToSection('services')}>Services</Link>
